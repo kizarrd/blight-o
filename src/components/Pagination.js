@@ -7,7 +7,7 @@ import { pageActions } from "../store/page-slice";
 const Pagination = () => {
   const [pageIndices, setPageIndices] = useState([]);
   const maxPageNum = useSelector((state) => state.pagination.maxPageNum);
-  const currPageNum = useSelector((state) => state.pagination.currentPage);
+  const currPageNum = useSelector((state) => state.pagination.currentPageNum);
   const dataLength = useSelector((state) => state.pagination.dataLength);
 
   const dispatch = useDispatch();
