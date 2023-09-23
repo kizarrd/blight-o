@@ -1,4 +1,5 @@
 import ItemList from "./components/ItemList";
+import Pagination from "./components/Pagination";
 
 function App() {
 
@@ -10,6 +11,7 @@ function App() {
       </header>
       <main>
         <ItemList />
+        <Pagination />
       </main>
     </div>
   );

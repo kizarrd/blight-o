@@ -1,0 +1,11 @@
+.pagination {
+  display: flex;
+}
+
+.pagination-page {
+  margin: 3px;
+}
+
+.selected {
+  color: red;
+}
