@@ -8,7 +8,6 @@ const ItemList = () => {
     (state) => state.pagination.numOfItemsInOnePage
   );
   const currPageNum = useSelector((state) => state.pagination.currentPage);
-  const maxPageNum = useSelector((state) => state.pagination.maxPageNum);
   const dataLength = useSelector((state) => state.pagination.dataLength);
 
   return (
