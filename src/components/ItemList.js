@@ -1,12 +1,11 @@
 import styles from "./ItemList.module.css";
 import { useSelector } from "react-redux";
 
-const ItemList = () => {
-  const itemsOnCurrentPage = useSelector((state) => state.pagination.itemsOnCurrentPage);
+const ItemList = ({itemListData}) => {
 
   return (
     <ul>
-      {itemsOnCurrentPage
+      {itemListData
         .map(({ name, brand, price, sold_out, img_url, detail_page_url }) => (
           <li>
             <div className={styles.itemContainer}>
@@ -14,7 +13,7 @@ const ItemList = () => {
                 className={styles.itemImg}
                 src={"https://" + img_url}
                 alt="item"
-                // loading="lazy"
+                loading="lazy"
               />
               <div>{name}</div>
               <div>{price}</div>
