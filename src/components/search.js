@@ -1,6 +1,4 @@
 import SearchIcon from "@mui/icons-material/Search";
-import { useDispatch } from "react-redux";
-import { searchActions } from "../store/search-slice";
 import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 

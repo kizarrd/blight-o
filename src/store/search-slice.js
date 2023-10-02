@@ -17,13 +17,12 @@ const searchSlice = createSlice({
   initialState: {
     keyword: null,
     searchResult: dummyData,
-    searchAndPageResult: getNewItemsList(dummyData, 1, dummyData.length), 
+    searchAndPageResult: getNewItemsList(dummyData, 1, dummyData.length),
     numOfItemsInOnePage,
   },
   reducers: {
     search(state, action) {
-      // searching
-      if(action.payload.keyword !== state.keyword){
+      if (action.payload.keyword !== state.keyword) {
         state.searchResult = dummyData.filter(
           (item) =>
             item.name
@@ -35,15 +34,6 @@ const searchSlice = createSlice({
         );
       }
       console.log(state.searchResult);
-      // go to first page (when search keywoard is changed)
-      // console.log(action.payload.page);
-      // state.searchAndPageResult = getNewItemsList(
-      //   state.searchResult,
-      //   1,
-      //   state.searchResult.length
-      // );
-      // console.log(state.searchResult);
-      // console.log(state.searchAndPageResult);
     },
     moveToThisPage(state, action) {
       console.log(action.payload.page);

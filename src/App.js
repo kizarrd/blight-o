@@ -22,18 +22,7 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  // routing으로 search page와 all items(전체) 페이지 구분 필요함
   return <RouterProvider router={router} />;
-
-  // <div className="App">
-  //   <main>
-  //     <h1>search result</h1>
-  //     <ItemList itemListData={itemListDataBySearch} />
-  //     <h1>all items</h1>
-  //     <ItemList itemListData={itemListDataByPagination} />
-  //     <Pagination />
-  //   </main>
-  // </div>
 }
 
 export default App;
