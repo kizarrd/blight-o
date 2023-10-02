@@ -4,7 +4,7 @@ import { dummyData } from "../data/dummyData";
 const searchSlice = createSlice({
   name: "search",
   initialState: {
-    searchResult: [],
+    searchResult: dummyData,
   },
   reducers: {
     search(state, action) {

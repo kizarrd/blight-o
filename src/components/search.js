@@ -2,14 +2,15 @@ import SearchIcon from "@mui/icons-material/Search";
 import { useDispatch } from "react-redux";
 import { searchActions } from "../store/search-slice";
 import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 
 const Search = () => {
+  let [searchParams, setSearchParams] = useSearchParams();
   const [keyword, setKeyword] = useState("");
-  const dispatch = useDispatch();
   const searchHandler = (e) => {
     e.preventDefault();
     console.log(keyword);
-    dispatch(searchActions.search({ keyword }));
+    setSearchParams({ search: keyword });
   };
 
   return (
