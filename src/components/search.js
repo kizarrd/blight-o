@@ -9,8 +9,13 @@ const Search = () => {
   const [keyword, setKeyword] = useState("");
   const searchHandler = (e) => {
     e.preventDefault();
-    console.log(keyword);
-    setSearchParams({ search: keyword });
+    const trimmedKeyword = keyword.trim();
+    console.log(trimmedKeyword);
+    if (trimmedKeyword === "") {
+      alert("검색어를 입력해 주세요.");
+      return;
+    }
+    setSearchParams({ search: trimmedKeyword, page: 1 });
   };
 
   return (

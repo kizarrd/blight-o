@@ -1,4 +1,3 @@
-import { useSelector } from "react-redux";
 import ItemList from "./components/ItemList";
 import {
   Navigate,
@@ -15,7 +14,7 @@ const router = createBrowserRouter([
     element: <RootLayout />,
     errorElement: <ErrorPage />,
     children: [
-      { path: "/", element: <Navigate to='/items' /> },
+      { path: "/", element: <Navigate to="/items" /> },
       { path: "/items", element: <ItemList /> },
       { path: "/brands", element: <BrandList /> },
     ],
@@ -23,13 +22,6 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  const itemListDataByPagination = useSelector(
-    (state) => state.pagination.itemsOnCurrentPage
-  );
-  const itemListDataBySearch = useSelector(
-    (state) => state.search.searchResult
-  );
-
   // routing으로 search page와 all items(전체) 페이지 구분 필요함
   return <RouterProvider router={router} />;
 
