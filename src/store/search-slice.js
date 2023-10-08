@@ -1,7 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { dummyData } from "../data/dummyData";
+// import { dummyData } from "../data/dummyData";
+import { dummyData1 } from "../data/converted_beslow_1008164314"
+import { dummyData2 } from "../data/converted_havati_1008175920"
+import { dummyData3 } from "../data/converted_rhykershop_1008165125"
+import { dummyData4 } from "../data/converted_sculpstore_1008181507"
+import { dummyData5 } from "../data/converted_slowsteadyclub_163056"
 
 const numOfItemsInOnePage = 60;
+const data = [...dummyData1, ...dummyData2, ...dummyData3, ...dummyData4, ...dummyData5];
 
 const getNewItemsList = (inputData, currentPageNum, dataLength) => {
   return inputData.slice(
@@ -16,14 +22,14 @@ const searchSlice = createSlice({
   name: "search",
   initialState: {
     keyword: null,
-    searchResult: dummyData,
-    searchAndPageResult: getNewItemsList(dummyData, 1, dummyData.length),
+    searchResult: data,
+    searchAndPageResult: getNewItemsList(data, 1, data.length),
     numOfItemsInOnePage,
   },
   reducers: {
     search(state, action) {
       if (action.payload.keyword !== state.keyword) {
-        state.searchResult = dummyData.filter(
+        state.searchResult = data.filter(
           (item) =>
             item.name
               .toUpperCase()
@@ -44,7 +50,7 @@ const searchSlice = createSlice({
       );
     },
     reset(state) {
-      state.searchResult = dummyData;
+      state.searchResult = data;
       // console.log(state.searchResult);
     },
   },

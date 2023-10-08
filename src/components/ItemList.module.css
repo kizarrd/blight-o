@@ -5,8 +5,15 @@ ul {
   flex-wrap: wrap;
 }
 
+li {
+  /* margin-left: -50px;
+  padding: 0 0 40px 50px; */
+
+}
+
 .itemContainer {
-  padding: 10%;
+  width: 80%;
+  /* margin: 10%; */
 }
 
 .itemImg {
