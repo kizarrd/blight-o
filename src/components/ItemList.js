@@ -14,11 +14,13 @@ const ItemList = () => {
   useEffect(() => {
     let keyword = searchParams.get("search");
     let page = searchParams.get("page");
-    if (keyword) {
+    if (keyword && keyword !== 'null') {
+      console.log(typeof(keyword))
       dispatch(searchActions.search({ keyword }));
       dispatch(searchActions.moveToThisPage({ page: page ? Number(page) : 1 }));
     } else {
       dispatch(searchActions.reset());
+      dispatch(searchActions.moveToThisPage({ page: page ? Number(page) : 1 }));
     }
   }, [dispatch, searchParams]);
 
@@ -32,8 +34,6 @@ const ItemList = () => {
 
   const getShopName = (itemId, lang = "eng") => {
     for (const shop of Object.keys(shopList)) {
-      console.log(shop);
-      console.log(itemId);
       if (itemId.includes(shop)) {
         if (lang === "kor") return shopList[shop];
         else if (lang === "eng") return shop;
