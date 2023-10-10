@@ -14,8 +14,8 @@ const ItemList = () => {
   useEffect(() => {
     let keyword = searchParams.get("search");
     let page = searchParams.get("page");
-    if (keyword && keyword !== 'null') {
-      console.log(typeof(keyword))
+    if (keyword && keyword !== "null") {
+      console.log(typeof keyword);
       dispatch(searchActions.search({ keyword }));
       dispatch(searchActions.moveToThisPage({ page: page ? Number(page) : 1 }));
     } else {
@@ -39,6 +39,10 @@ const ItemList = () => {
         else if (lang === "eng") return shop;
       }
     }
+  };
+
+  const formatPrice = (priceValue) => {
+    return new Intl.NumberFormat().format(priceValue);
   };
 
   return (
@@ -65,26 +69,30 @@ const ItemList = () => {
                     alt="item"
                     // loading="lazy"
                   />
-                  <div>[{brand}]</div>
-                  <div>{name}</div>
-
-                  {sale === "True" ? (
-                    <div>
-                      <s style={{ opacity: "0.5" }}>{original_price}</s>
-                      <span style={{ marginLeft: "5px" }}>{sale_price}</span>
-                      <span style={{ marginLeft: "5px", color: "red" }}>
-                        {((original_price - sale_price) / original_price) * 100}
-                        %
-                      </span>
-                    </div>
-                  ) : (
-                    <div>
-                      <span>{original_price}</span>
-                    </div>
-                  )}
-
-                  <div>판매처: {getShopName(id)}</div>
                 </a>
+                <div className={styles.description}>
+                  <a href={detail_page_url} target="_blank" rel="noreferrer">
+                    <span className={styles.brand}>[{brand}] </span>
+                    <span className={styles.item_name}>{name}</span>
+                  </a>
+                </div>
+                {sale === "True" ? (
+                  <div className={styles.price}>
+                    <s className={styles.price__original}>{formatPrice(original_price)}원</s>
+                    <span className={styles.price__sale}>{formatPrice(sale_price)}원</span>
+                    <span className={styles.price__percentage}>
+                      {((original_price - sale_price) / original_price) * 100}%
+                    </span>
+                  </div>
+                ) : (
+                  <div className={styles.price}>
+                    <span className={styles.price_wo_sale}>
+                      {formatPrice(original_price)}원
+                    </span>
+                  </div>
+                )}
+
+                <div>판매처: {getShopName(id)}</div>
               </div>
             </li>
           )

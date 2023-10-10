@@ -14,7 +14,50 @@ li {
 .itemContainer {
   width: 80%;
   /* margin: 10%; */
+  font-family: 'acumin-pro-condensed','noto sans KR',sans-serif;
+  font-size: 12px;
+  margin-bottom: 10px;
 }
+
+.brand {
+  font-weight: bold;
+  font-size: 13px;
+  margin-bottom: 7px;
+}
+
+.description {
+  margin-bottom: 15px;
+  line-height: 1.4;
+}
+
+.item_name {
+}
+
+.price {
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.price_wo_sale {
+  
+}
+
+.price__original {
+  opacity: 0.55;
+  font-weight: normal;
+  /* color: grey; */
+}
+
+.price__sale {
+  margin-left: 5px; 
+}
+
+.price__percentage {
+  margin-left: 5px; 
+  color: red;
+}
+
 
 .itemImg {
   width: 100%;
