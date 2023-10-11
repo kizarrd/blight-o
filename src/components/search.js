@@ -1,6 +1,7 @@
 import SearchIcon from "@mui/icons-material/Search";
 import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
+import styles from "./Search.module.css";
 
 const Search = () => {
   let [searchParams, setSearchParams] = useSearchParams();
@@ -24,8 +25,8 @@ const Search = () => {
         }}
         value={keyword}
       />
-      <button type="submit">
-        <SearchIcon fontSize="small" />
+      <button className={styles.searchButton} type="submit">
+        <SearchIcon fontSize="medium" />
       </button>
     </form>
   );

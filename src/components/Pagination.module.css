@@ -1,11 +1,21 @@
 .pagination {
+  margin-top: 50px;
+  margin-bottom: 150px;
   display: flex;
 }
 
 .pagination-page {
+  width: 20px;
+  height: 20px;
   margin: 3px;
 }
 
 .selected {
   color: red;
+}
+
+.movePageBtn {
+  width: 20px;
+  height: 20px;
+  margin: 3px;
 }

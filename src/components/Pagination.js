@@ -28,6 +28,7 @@ const Pagination = () => {
   return (
     <div className={styles.pagination}>
       <button
+        className={styles.movePageBtn}
         onClick={() => {
           if (currPageNum === 1) {
             alert("첫번째 페이지 입니다!");
@@ -43,6 +44,7 @@ const Pagination = () => {
         {"<<"}
       </button>
       <button
+        className={styles.movePageBtn}
         onClick={() => {
           if (currPageNum === 1) {
             alert("첫번째 페이지 입니다!");
@@ -88,6 +90,7 @@ const Pagination = () => {
         return newPageIndices;
       })()}
       <button
+        className={styles.movePageBtn}
         onClick={() => {
           if (currPageNum === maxPageNum) {
             alert("마지막 페이지 입니다!");
@@ -103,6 +106,7 @@ const Pagination = () => {
         {">"}
       </button>
       <button
+        className={styles.movePageBtn}
         onClick={() => {
           if (currPageNum === maxPageNum) {
             alert("마지막 페이지 입니다!");
