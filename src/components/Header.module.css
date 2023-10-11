@@ -3,9 +3,10 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 200px;
+  /* height: 200px; */
   margin-top: 20px;
   margin-bottom: 20px;
+  padding: 50px 0 0 0;
 }
 
 h1 {
@@ -28,4 +29,29 @@ h1 {
 .orange {
   color: rgb(255, 115, 0);
   
+}
+
+
+nav {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navUl {
+  display: flex;
+  justify-content: center;
+}
+.navList {
+  width: 100px;
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+
+.active {
+  color: blue;
 }

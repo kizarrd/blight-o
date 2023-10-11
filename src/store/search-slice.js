@@ -8,6 +8,7 @@ import { dummyData5 } from "../data/converted_slowsteadyclub_163056"
 
 const numOfItemsInOnePage = 60;
 const data = [...dummyData1, ...dummyData2, ...dummyData3, ...dummyData4, ...dummyData5];
+const brands = [...new Set(data.map(item => item.brand))];
 
 const getNewItemsList = (inputData, currentPageNum, dataLength) => {
   return inputData.slice(
@@ -23,6 +24,7 @@ const searchSlice = createSlice({
   initialState: {
     keyword: null,
     searchResult: data,
+    brands,
     searchAndPageResult: getNewItemsList(data, 1, data.length),
     numOfItemsInOnePage,
   },

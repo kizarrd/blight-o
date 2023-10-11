@@ -6,7 +6,7 @@ ul {
   width: 80%;
 }
 
-li {
+.itemList-li {
   /* margin-left: -50px;
   padding: 0 0 40px 50px; */
   display: flex;
@@ -71,7 +71,7 @@ li {
 }
 /* Extra Small Devices, Phones : 480px ~ */
 @media only screen and (min-width : 480px) {
-  li {
+  .itemList-li {
     width: 50%;
   }
 }
@@ -85,7 +85,7 @@ li {
 }
 /* Large Devices, Wide Screens : 1200px ~ */
 @media only screen and (min-width : 1200px) {
-  li {
+  .itemList-li {
     width: 25%;
   }
 }

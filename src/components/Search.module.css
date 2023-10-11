@@ -1,6 +1,7 @@
 form {
   display: flex;
   align-items: center;
+  margin-bottom: 20px;
 }
 input {
   width: 300px;

@@ -4,14 +4,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { searchActions } from "../store/search-slice";
 import Pagination from "./Pagination";
+import Search from "./Search";
 
 const ItemList = () => {
   const itemListDataBySearch = useSelector(
     (state) => state.search.searchAndPageResult
   );
+  const brands = useSelector((state) => state.search.brands);
   const dispatch = useDispatch();
   let [searchParams, setSearchParams] = useSearchParams();
   useEffect(() => {
+    console.log(brands);
     let keyword = searchParams.get("search");
     let page = searchParams.get("page");
     if (keyword && keyword !== "null") {
@@ -47,6 +50,7 @@ const ItemList = () => {
 
   return (
     <>
+      <Search />
       <ul>
         {itemListDataBySearch.map(
           ({
@@ -60,7 +64,7 @@ const ItemList = () => {
             img_url,
             detail_page_url,
           }) => (
-            <li key={id}>
+            <li className={styles["itemList-li"]} key={id}>
               <div className={styles.itemContainer}>
                 <a href={detail_page_url} target="_blank" rel="noreferrer">
                   <img

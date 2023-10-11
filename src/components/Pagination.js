@@ -1,5 +1,5 @@
 import styles from "./Pagination.module.css";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useSearchParams } from "react-router-dom";
 
 const Pagination = () => {
