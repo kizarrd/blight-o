@@ -1,4 +1,4 @@
-import ItemList from "./components/ItemList";
+import ItemList, { loader as itemListLoader } from "./components/ItemList";
 import {
   Navigate,
   RouterProvider,
@@ -15,7 +15,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       { path: "/", element: <Navigate to="/items" /> },
-      { path: "/items", element: <ItemList /> },
+      { path: "/items", loader: itemListLoader, element: <ItemList /> },
       { path: "/brands", element: <BrandList /> },
     ],
   },

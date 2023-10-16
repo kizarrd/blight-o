@@ -1,4 +1,4 @@
-import { useSearchParams } from "react-router-dom";
+import { json, useLoaderData, useSearchParams } from "react-router-dom";
 import styles from "./ItemList.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
@@ -10,21 +10,13 @@ const ItemList = () => {
   const itemListDataBySearch = useSelector(
     (state) => state.search.searchAndPageResult
   );
-  const brands = useSelector((state) => state.search.brands);
+  const loadedData = useLoaderData();
   const dispatch = useDispatch();
   let [searchParams, setSearchParams] = useSearchParams();
   useEffect(() => {
-    console.log(brands);
-    let keyword = searchParams.get("search");
     let page = searchParams.get("page");
-    if (keyword && keyword !== "null") {
-      console.log(typeof keyword);
-      dispatch(searchActions.search({ keyword }));
-      dispatch(searchActions.moveToThisPage({ page: page ? Number(page) : 1 }));
-    } else {
-      dispatch(searchActions.reset());
-      dispatch(searchActions.moveToThisPage({ page: page ? Number(page) : 1 }));
-    }
+    dispatch(searchActions.load({ fetchedData: loadedData }));
+    dispatch(searchActions.moveToThisPage({ page: page ? Number(page) : 1 }));
   }, [dispatch, searchParams]);
 
   const shopList = {
@@ -108,3 +100,21 @@ const ItemList = () => {
 };
 
 export default ItemList;
+
+export const loader = async ({ request, params }) => {
+  // loader is not a react component. so hooks like useSearchParams cannot be used here 
+  const url = new URL(request.url);
+  const searchTerm = url.searchParams.get("search"); 
+  // console.log(searchTerm);
+  let API_URL = "http://localhost:8080/items" + (searchTerm === null ? "" : `/search?keyword=${searchTerm}`);
+  const response = await fetch(API_URL);
+  // console.log(response);
+  if (!response.ok) {
+    throw json(
+      { message: "Could not fetch items" },
+      { status: 500 }
+    );
+  } else {
+    return response;
+  }
+};

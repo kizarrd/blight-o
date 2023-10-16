@@ -10,19 +10,30 @@ const Header = () => {
           <span>Blight</span>
           <span className={classes.white}>-</span>
           <span className={classes.orange}>O</span>
-          {/* <span className={styles.white}>Blight</span>
-          <span>-</span>
-          <span className={styles.orange}>O</span> */}
         </Link>
       </h1>
       {/* <Search /> */}
       <nav>
         <ul className={classes.navUl}>
           <li className={classes.navList}>
-            <NavLink to="/items" className={({isActive}) => isActive ? classes.active : undefined}>Search</NavLink>
+            <NavLink
+              to="/items"
+              className={({ isActive }) =>
+                isActive ? classes.active : undefined
+              }
+            >
+              Search
+            </NavLink>
           </li>
           <li className={classes.navList}>
-            <NavLink to="/brands" className={({isActive}) => isActive ? classes.active : undefined}>Brands</NavLink>
+            <NavLink
+              to="/brands"
+              className={({ isActive }) =>
+                isActive ? classes.active : undefined
+              }
+            >
+              Brands
+            </NavLink>
           </li>
         </ul>
       </nav>
