@@ -1,3 +1,6 @@
+@value colors: "../colors.module.css";
+@value calico_orange from colors;
+
 header {
   display: flex;
   flex-direction: column;
@@ -27,7 +30,8 @@ h1 {
 }
 
 .orange {
-  color: rgb(255, 115, 0);
+  /* color: rgb(255, 115, 0); */
+  color: calico_orange;
   
 }
 
