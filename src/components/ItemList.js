@@ -4,6 +4,7 @@ import { Suspense, useEffect, useState } from "react";
 import { searchActions } from "../store/search-slice";
 import Item from "./Item";
 import { loadingActions } from "../store/loading-slice";
+import './ItemList.module.css';
 
 const ItemList = () => {
   const itemListDataBySearch = useSelector(
@@ -20,9 +21,9 @@ const ItemList = () => {
         return;
       }
       dispatch(loadingActions.setLoading());
-      let data;
       const paramKeyword = searchParams.get("search") === null ? "" : searchParams.get("search");
       console.log(paramKeyword)
+      let data;
       if (paramKeyword !== keyword) {
         setKeyword((prev) => paramKeyword);
         let API_URL =
@@ -33,7 +34,7 @@ const ItemList = () => {
         console.log(data);
         dispatch(searchActions.load({ fetchedData: data }));
       }
-      let page = searchParams.get("page");
+      const page = searchParams.get("page");
       dispatch(searchActions.moveToThisPage({ page: page ? Number(page) : 1 }));
       dispatch(loadingActions.setIdle());
     })();

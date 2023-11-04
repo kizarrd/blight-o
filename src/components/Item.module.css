@@ -2,11 +2,6 @@
 @value calico_orange from colors;
 /*==========  Mobile First Method  ==========*/
 /* All Device */
-ul {
-  display: flex;
-  flex-wrap: wrap;
-  width: 80%;
-}
 
 .itemList-li {
   /* margin-left: -50px;
@@ -19,7 +14,7 @@ ul {
 .itemContainer {
   width: 80%;
   /* margin: 10%; */
-  font-family: 'acumin-pro-condensed','noto sans KR',sans-serif;
+  /* font-family: 'acumin-pro-condensed','noto sans KR',sans-serif; */
   font-size: 12px;
   margin-bottom: 10px;
 }

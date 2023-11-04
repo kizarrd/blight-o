@@ -1,8 +1,11 @@
 import { Link, NavLink } from "react-router-dom";
 import Search from "./Search";
 import classes from "./Header.module.css";
+import { useSelector } from "react-redux";
 
 const Header = () => {
+  const loading = useSelector((state) => state.loading.state);
+
   return (
     <header className="App-header">
       <h1>
@@ -31,6 +34,13 @@ const Header = () => {
               className={({ isActive }) =>
                 isActive ? classes.active : undefined
               }
+              onClick={(e) => {
+                if(loading){
+                  e.preventDefault();
+                  alert('아직 이전 검색 결과의 데이터를 불러오는 중입니다. 잠시 후 다시 시도해 주세요');
+                  return;
+                }
+              }}
             >
               Brands
             </NavLink>

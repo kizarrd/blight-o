@@ -1,0 +1,23 @@
+.brand_ul {
+
+}
+
+.guide {
+  margin-bottom: 30px;
+  font-size: 14px;
+  opacity: 0.6;
+}
+
+.brand_li {
+  font-size: 14px;
+  width: 20%;
+  margin: 14px 0 0 0;
+  padding: 0 14px 0 0;
+  box-sizing: border-box;
+  height: 28px;
+}
+
+.brand_li:hover {
+  font-weight: bold;
+  text-decoration: underline;
+}

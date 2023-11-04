@@ -1,7 +1,31 @@
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import styles from "./BrandList.module.css";
+
 const BrandList = () => {
-  return (<>
-    <h1>Brand list comes here</h1>
-  </>);
+  const [brands, setBrands] = useState([]);
+  useEffect(() => {
+    (async () => {
+      const brandsData = await (
+        await fetch("http://localhost:8080/items/brands")
+      ).json();
+      console.log(brandsData);
+      setBrands((brands) => brandsData.slice(1));
+    })();
+  }, []);
+
+  return (
+    <>
+    <p className={styles.guide}>*ctrl+f 를 통해 브랜드 검색을 하실 수 있습니다.</p>
+    <ul className={styles.brand_ul}>
+      {brands.map((brandName) => (
+        <li className={styles.brand_li}>
+          <Link to={`/items?search=${brandName}`}>{brandName}</Link>
+        </li>
+      ))}
+    </ul>
+    </>
+  );
 };
 
 export default BrandList;
