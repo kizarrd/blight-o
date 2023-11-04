@@ -33,10 +33,11 @@ const Item = ({data}) => {
     sold_out,
     img_url,
     detail_page_url,
+    _id
   } = data;
 
   return (
-    <li className={styles["itemList-li"]} key={id}>
+    <li className={styles["itemList-li"]}>
       <div className={styles.itemContainer}>
         {/* <a href={detail_page_url} target="_blank" rel="noreferrer"> */}
         <img

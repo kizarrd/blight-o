@@ -1,58 +1,66 @@
-import { json, useLoaderData, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { searchActions } from "../store/search-slice";
 import Pagination from "./Pagination";
 import Search from "./Search";
 import Item from "./Item";
 import styled from "@emotion/styled";
+import { loadingActions } from "../store/loading-slice";
 
 const ItemList = () => {
   const itemListDataBySearch = useSelector(
     (state) => state.search.searchAndPageResult
   );
-  const loadedData = useLoaderData();
   const dispatch = useDispatch();
-  let [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const loading = useSelector((state) => state.loading.state);
+
   useEffect(() => {
-    let page = searchParams.get("page");
-    dispatch(searchActions.load({ fetchedData: loadedData }));
-    dispatch(searchActions.moveToThisPage({ page: page ? Number(page) : 1 }));
+    (async () => {
+      if (loading) {
+        return;
+      }
+      dispatch(loadingActions.setLoading());
+      console.log(searchParams.size);
+      let API_URL =
+        "http://localhost:8080/items" +
+        (searchParams.size ? `/search?keyword=${searchParams}` : "");
+      console.log(API_URL);
+      const data = await (await fetch(API_URL)).json();
+      console.log(data);
+      let page = searchParams.get("page");
+      dispatch(searchActions.load({ fetchedData: data }));
+      dispatch(searchActions.moveToThisPage({ page: page ? Number(page) : 1 }));
+      dispatch(loadingActions.setIdle());
+    })();
   }, [dispatch, searchParams]);
 
   return (
     <>
-      <Search />
-      {loadedData.length > 0 ? (
+      {loading ? (
+        <p>Loading ...</p>
+      ) : itemListDataBySearch.length > 0 ? (
         <ul>
           {itemListDataBySearch.map((data) => (
-            <Item data={data} />
+            <Item key={data._id} data={data} />
           ))}
         </ul>
       ) : (
-        <div style={{padding: '30px', textAlign: 'center', lineHeight: '24px'}}>검색 결과가 없습니다.<br />철자와 띄어쓰기 등을 확인해 주세요.</div>
+        <p
+          style={{
+            padding: "30px",
+            textAlign: "center",
+            lineHeight: "24px",
+          }}
+        >
+          검색 결과가 없습니다.
+          <br />
+          철자와 띄어쓰기, 페이지 숫자 등을 확인해 주세요.
+        </p>
       )}
-
-      <Pagination />
     </>
   );
 };
 
 export default ItemList;
-
-export const loader = async ({ request, params }) => {
-  // loader is not a react component. so hooks like useSearchParams cannot be used here
-  const url = new URL(request.url);
-  const searchTerm = url.searchParams.get("search");
-  // console.log(searchTerm);
-  let API_URL =
-    "http://localhost:8080/items" +
-    (searchTerm === null ? "" : `/search?keyword=${searchTerm}`);
-  const response = await fetch(API_URL);
-  // console.log(response);
-  if (!response.ok) {
-    throw json({ message: "Could not fetch items" }, { status: 500 });
-  } else {
-    return response;
-  }
-};
