@@ -12,7 +12,7 @@ const ItemList = () => {
   const dispatch = useDispatch();
   const [searchParams, setSearchParams] = useSearchParams();
   const loading = useSelector((state) => state.loading.state);
-  const [keyword, setKeyword] = useState('a');
+  const [keyword, setKeyword] = useState("a");
 
   useEffect(() => {
     (async () => {
@@ -21,17 +21,16 @@ const ItemList = () => {
       }
       dispatch(loadingActions.setLoading());
       let data;
-      // console.log(searchParams.get("keyword"));
-      const paramKeyword = searchParams.get("keyword") === null ? "" : searchParams.get("keyword");
-      // console.log(paramKeyword)
-      if(paramKeyword !== keyword) {
+      const paramKeyword = searchParams.get("search") === null ? "" : searchParams.get("search");
+      console.log(paramKeyword)
+      if (paramKeyword !== keyword) {
         setKeyword((prev) => paramKeyword);
         let API_URL =
           "http://localhost:8080/items" +
           (paramKeyword === "" ? "" : `/search?keyword=${paramKeyword}`);
-        // console.log(API_URL);
+        console.log(API_URL);
         data = await (await fetch(API_URL)).json();
-        // console.log(data);
+        console.log(data);
         dispatch(searchActions.load({ fetchedData: data }));
       }
       let page = searchParams.get("page");

@@ -1,4 +1,4 @@
-import styles from "./ItemList.module.css";
+import styles from "./Item.module.css";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 
 const shopList = {
@@ -22,7 +22,7 @@ const formatPrice = (priceValue) => {
   return new Intl.NumberFormat().format(priceValue);
 };
 
-const Item = ({data}) => {
+const Item = ({ data }) => {
   const {
     id,
     name,
@@ -33,7 +33,7 @@ const Item = ({data}) => {
     sold_out,
     img_url,
     detail_page_url,
-    _id
+    _id,
   } = data;
 
   return (
@@ -67,9 +67,7 @@ const Item = ({data}) => {
                     {formatPrice(sale_price)}원
                   </span>
                   <span className={styles.price__percentage}>
-                    {((original_price - sale_price) / original_price) *
-                      100}
-                    %
+                    {Math.round(((original_price - sale_price) / original_price) * 100)}%
                   </span>
                 </div>
               </>
@@ -77,6 +75,9 @@ const Item = ({data}) => {
               <span className={styles.price_wo_sale}>
                 {formatPrice(original_price)}원
               </span>
+            )}
+            {sold_out === "True" && (
+              <div className={styles.sold_out}>품절</div>
             )}
           </div>
           <div className={styles.go_to_website}>
@@ -89,12 +90,14 @@ const Item = ({data}) => {
                 />
               </button>
             </a>
-            <div className={styles.website_info}>판매처: {getShopName(id, "kor")}</div>
+            <div className={styles.website_info}>
+              판매처: {getShopName(id, "kor")}
+            </div>
           </div>
         </div>
       </div>
     </li>
-  )
+  );
 };
 
 export default Item;
