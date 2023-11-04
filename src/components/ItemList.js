@@ -2,10 +2,7 @@ import { useSearchParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Suspense, useEffect, useState } from "react";
 import { searchActions } from "../store/search-slice";
-import Pagination from "./Pagination";
-import Search from "./Search";
 import Item from "./Item";
-import styled from "@emotion/styled";
 import { loadingActions } from "../store/loading-slice";
 
 const ItemList = () => {
@@ -15,6 +12,7 @@ const ItemList = () => {
   const dispatch = useDispatch();
   const [searchParams, setSearchParams] = useSearchParams();
   const loading = useSelector((state) => state.loading.state);
+  const [keyword, setKeyword] = useState('a');
 
   useEffect(() => {
     (async () => {
@@ -22,15 +20,21 @@ const ItemList = () => {
         return;
       }
       dispatch(loadingActions.setLoading());
-      console.log(searchParams.size);
-      let API_URL =
-        "http://localhost:8080/items" +
-        (searchParams.size ? `/search?keyword=${searchParams}` : "");
-      console.log(API_URL);
-      const data = await (await fetch(API_URL)).json();
-      console.log(data);
+      let data;
+      // console.log(searchParams.get("keyword"));
+      const paramKeyword = searchParams.get("keyword") === null ? "" : searchParams.get("keyword");
+      // console.log(paramKeyword)
+      if(paramKeyword !== keyword) {
+        setKeyword((prev) => paramKeyword);
+        let API_URL =
+          "http://localhost:8080/items" +
+          (paramKeyword === "" ? "" : `/search?keyword=${paramKeyword}`);
+        // console.log(API_URL);
+        data = await (await fetch(API_URL)).json();
+        // console.log(data);
+        dispatch(searchActions.load({ fetchedData: data }));
+      }
       let page = searchParams.get("page");
-      dispatch(searchActions.load({ fetchedData: data }));
       dispatch(searchActions.moveToThisPage({ page: page ? Number(page) : 1 }));
       dispatch(loadingActions.setIdle());
     })();

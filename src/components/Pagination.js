@@ -11,6 +11,7 @@ const Pagination = () => {
   const numOfItemsInOnePage = useSelector(
     (state) => state.search.numOfItemsInOnePage
   );
+  const loading = useSelector((state) => state.loading.state);
   const maxPageNum = Math.ceil(searchResult.length / numOfItemsInOnePage);
   let [searchParams, setSearchParams] = useSearchParams();
   const currPageNum = searchParams.get("page")
@@ -29,7 +30,8 @@ const Pagination = () => {
         MAX_NUM_OF_PAGES;
 
   return (
-    itemListDataBySearch.length > 0 && (
+    itemListDataBySearch.length > 0 &&
+    !loading && (
       <div className={styles.pagination}>
         <button
           className={styles.movePageBtn}
