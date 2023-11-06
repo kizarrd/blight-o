@@ -4,7 +4,7 @@
 }
 
 .pagination-page {
-  width: 20px;
+  width: fit-content;
   height: 20px;
   margin: 3px;
 }

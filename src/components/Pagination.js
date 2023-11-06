@@ -3,16 +3,12 @@ import { useSelector } from "react-redux";
 import { useSearchParams } from "react-router-dom";
 
 const Pagination = () => {
-  // const [pageIndices, setPageIndices] = useState([]);
-  const searchResult = useSelector((state) => state.search.searchResult);
-  const itemListDataBySearch = useSelector(
-    (state) => state.search.searchAndPageResult
-  );
-  const numOfItemsInOnePage = useSelector(
-    (state) => state.search.numOfItemsInOnePage
+  const numTotalItems = useSelector((state) => state.search.countSearchResult);
+  const numItemsInOnePage = useSelector(
+    (state) => state.search.numItemsInOnePage
   );
   const loading = useSelector((state) => state.loading.state);
-  const maxPageNum = Math.ceil(searchResult.length / numOfItemsInOnePage);
+  const maxPageNum = Math.ceil(numTotalItems / numItemsInOnePage);
   let [searchParams, setSearchParams] = useSearchParams();
   const currPageNum = searchParams.get("page")
     ? Number(searchParams.get("page"))
@@ -30,7 +26,7 @@ const Pagination = () => {
         MAX_NUM_OF_PAGES;
 
   return (
-    itemListDataBySearch.length > 0 &&
+    numTotalItems > 0 &&
     !loading && (
       <div className={styles.pagination}>
         <button
