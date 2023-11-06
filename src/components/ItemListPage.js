@@ -9,7 +9,7 @@ const ItemListPage = () => {
     <>
       <Search />
       <ItemList />
-      <Pagination />
+      {/* <Pagination /> */}
     </>
   )
 

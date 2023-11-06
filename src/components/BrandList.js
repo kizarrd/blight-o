@@ -20,7 +20,7 @@ const BrandList = () => {
     <ul className={styles.brand_ul}>
       {brands.map((brandName) => (
         <li className={styles.brand_li}>
-          <Link to={`/items?search=${brandName}`}>{brandName}</Link>
+          <Link className={styles.brand_link} to={`/items?search=${brandName}`}>{brandName}</Link>
         </li>
       ))}
     </ul>

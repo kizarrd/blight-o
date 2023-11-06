@@ -17,7 +17,7 @@
   height: 28px;
 }
 
-.brand_li:hover {
+.brand_link:hover {
   font-weight: bold;
   text-decoration: underline;
 }
