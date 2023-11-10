@@ -7,6 +7,11 @@ const shopList = {
   havati: "하바티",
   sculpstore: "스컬프스토어",
   rhykershop: "라이커샵",
+  EPP: "샵이피피(유니버셜리스트)",
+  etcseoul: "ETC SEOUL",
+  iamshop: "아이엠샵",
+  obscura: "옵스큐라",
+  randomwalk: "랜덤워크"
 };
 
 const getShopName = (itemId, lang = "eng") => {
@@ -34,6 +39,7 @@ const Item = ({ data }) => {
     img_url,
     detail_page_url,
     _id,
+    score
   } = data;
 
   return (
@@ -46,12 +52,11 @@ const Item = ({ data }) => {
           alt="item"
           // loading="lazy"
         />
-        {/* </a> */}
         <div className={styles.description}>
           {/* <a href={detail_page_url} target="_blank" rel="noreferrer"> */}
           <span className={styles.brand}>[{brand}] </span>
           <span className={styles.item_name}>{name}</span>
-          {/* </a> */}
+          {/* <span style={{paddingLeft: '10px', color: 'blue', fontWeight: 'bold', fontSize: '16px'}}>{Math.round(score*100)/100}</span> */}
         </div>
         <div className={styles.other_info}>
           <div className={styles.price}>

@@ -7,7 +7,7 @@ const BrandList = () => {
   useEffect(() => {
     (async () => {
       const brandsData = await (
-        await fetch("http://localhost:8080/items/brands")
+        await fetch(`${process.env.REACT_APP_API_BASE}/items/brands`)
       ).json();
       console.log(brandsData);
       setBrands((brands) => brandsData.slice(1));
