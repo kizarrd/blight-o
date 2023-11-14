@@ -48,7 +48,7 @@ const Item = ({ data }) => {
         {/* <a href={detail_page_url} target="_blank" rel="noreferrer"> */}
         <img
           className={styles.itemImg}
-          src={"https://" + img_url}
+          src={img_url.slice(0, 4) !== 'http' ? "https://" + img_url : img_url}
           alt="item"
           // loading="lazy"
         />
