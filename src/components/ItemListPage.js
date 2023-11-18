@@ -7,7 +7,6 @@ import ItemList from "./ItemList";
 const ItemListPage = () => {
   return(
     <>
-      <Search />
       <ItemList />
       <Pagination />
     </>

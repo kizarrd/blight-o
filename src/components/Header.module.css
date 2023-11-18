@@ -1,4 +1,4 @@
-@value colors: "../colors.module.css";
+@value colors: "../global.module.css";
 @value calico_orange from colors;
 
 header {
@@ -52,7 +52,7 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 20px;
+  font-size: 26px;
 }
 
 .active {

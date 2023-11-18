@@ -47,6 +47,7 @@ const Header = () => {
           </li>
         </ul>
       </nav>
+      <Search />
     </header>
   );
 };

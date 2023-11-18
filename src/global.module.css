@@ -1,0 +1,11 @@
+@value calico_orange: rgb(255, 115, 0);
+
+@value desktop_emphasize: 16px;
+@value desktop_base: 14px;
+@value desktop_secondary: 12px;
+@value desktop_tertiary: 10px;
+
+@value mobile_emphasize: 15px;
+@value mobile_base: 13px;
+@value mobile_secondary: 11px;
+@value mobile_tertiary: 9px;
