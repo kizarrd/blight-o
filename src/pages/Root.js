@@ -1,6 +1,5 @@
 import { Outlet } from "react-router-dom";
 import HeaderMobile from "../components/HeaderMobile";
-import styles from "./Root.module.css";
 import { useState } from "react";
 
 

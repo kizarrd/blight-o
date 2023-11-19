@@ -38,8 +38,8 @@ const Item = ({ data }) => {
     sold_out,
     img_url,
     detail_page_url,
-    _id,
-    score,
+    // _id,
+    // score,
   } = data;
 
   return (
