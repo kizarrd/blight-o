@@ -11,7 +11,7 @@ const navOpenSlice = createSlice({
     },
     setClose(state, action) {
       state.state = 'closed';
-    }
+    },
   },
 });
 

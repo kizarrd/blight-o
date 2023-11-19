@@ -6,6 +6,12 @@ main {
   margin-bottom: 150px;
 }
 
+
 * {
   font-family: 'acumin-pro-condensed','noto sans KR',sans-serif;
+}
+
+.app {
+  font-family: 'Times New Roman', Times, serif;
+  width: 100vw;
 }

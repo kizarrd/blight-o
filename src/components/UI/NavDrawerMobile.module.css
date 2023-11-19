@@ -4,11 +4,6 @@
   justify-content: center;
   align-items: center;
 } */
-
-.container {
-  font-family: 'Times New Roman', Times, serif;
-}
-
 .backdrop {
   position: fixed;
   top: 0;
@@ -24,7 +19,8 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 65%;
+  width: 80vw;
+  box-sizing: border-box;
   height: 100vh;
   background-color: white;
   padding: 1rem;

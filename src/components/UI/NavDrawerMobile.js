@@ -23,7 +23,7 @@ const NavDrawerMobile = ({open, onClose, pages}) => {
   const loading = useSelector((state) => state.loading.state);
 
   return (
-    <div className={classes.container}>
+    <>
       <Backdrop
         className={open === "open" ? classes["open-backdrop"] : ""}
         onClose={onClose}
@@ -60,7 +60,7 @@ const NavDrawerMobile = ({open, onClose, pages}) => {
           </li>)}
         </ul>
       </NavDrawer>
-    </div>
+    </>
   );
 };
 
