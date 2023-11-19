@@ -1,18 +1,20 @@
 import SearchIcon from "@mui/icons-material/Search";
 import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import styles from "./Search.module.css";
+import classes from "./Search.module.css";
 import { useSelector } from "react-redux";
 
-const Search = () => {
+const Search = ({ scrolledDown = false }) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [keyword, setKeyword] = useState("");
   const loading = useSelector((state) => state.loading.state);
   const searchHandler = (e) => {
     e.preventDefault();
-    if(loading){
+    if (loading) {
       setKeyword((prev) => "");
-      alert('아직 이전 검색 결과의 데이터를 불러오는 중입니다. 잠시 후 다시 시도해 주세요');
+      alert(
+        "아직 이전 검색 결과의 데이터를 불러오는 중입니다. 잠시 후 다시 시도해 주세요"
+      );
       return;
     }
     const trimmedKeyword = keyword.trim();
@@ -25,14 +27,14 @@ const Search = () => {
   };
 
   return (
-    <form onSubmit={searchHandler}>
+    <form onSubmit={searchHandler} className={scrolledDown && classes.flat}>
       <input
         onChange={(e) => {
           setKeyword(e.target.value);
         }}
         value={keyword}
       />
-      <button className={styles.searchButton} type="submit">
+      <button className={classes.searchButton} type="submit">
         <SearchIcon fontSize="medium" />
       </button>
     </form>

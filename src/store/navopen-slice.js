@@ -12,6 +12,9 @@ const navOpenSlice = createSlice({
     setClose(state, action) {
       state.state = 'closed';
     },
+    setInitial(state, action) {
+      state.state = 'initial';
+    }
   },
 });
 

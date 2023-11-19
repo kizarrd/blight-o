@@ -25,6 +25,10 @@ header {
   background-color: white;
 }
 
+.mobile-flat-header {
+  border-bottom: 2px solid rgb(245, 245, 245);
+}
+
 .menuIcon {
   margin-right: 10px;
 }

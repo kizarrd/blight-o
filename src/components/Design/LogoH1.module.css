@@ -1,18 +1,25 @@
-main {
-  /* width: 80%;   */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 150px;
+@value colors: "../../global.module.css";
+@value calico_orange from colors;
+
+h1 {
+  font-size: 30px;
 }
 
-* {
-  font-family: 'acumin-pro-condensed','noto sans KR',sans-serif;
+.white {
+  color: white;
+  -webkit-text-stroke: 2px black;
+
+  /* text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black; */
 }
 
-.app {
-  font-family: 'Times New Roman', Times, serif;
-  width: 100vw;
+.black {
+  color: black;
+}
+
+.orange {
+  /* color: rgb(255, 115, 0); */
+  color: calico_orange;
+  
 }
 
 /* Custom, iPhone Retina : 320px ~ */
@@ -23,8 +30,11 @@ main {
 }
 /* Small Devices, Tablets : 768px ~ */
 @media only screen and (min-width: 768px) {
-  main {
-    margin-top: 261px;
+  h1 {
+    font-size: 40px;
+  }
+  .flat-h1 {
+    padding: 0 20px 0 20px;
   }
 }
 /* Medium Devices, Desktops : 992px ~ */

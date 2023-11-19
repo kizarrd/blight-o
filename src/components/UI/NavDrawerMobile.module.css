@@ -47,32 +47,7 @@
   z-index: -30;
 }
 
-.navUl {
-  width: 0px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  /* background-color: aquamarine;
-  transition: width 200ms ease; */
-  /* position: fixed; */
-  /* top: 0;
-  left: 0;
-  height: 100vh;
-  z-index: 3; */
-}
 
-.navList {
-  width: 100px;
-  padding: 20px 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 26px;
-}
-
-.active {
-  color: blue;
-}
 
 /* @media (min-width: 768px) {
   .drawer {

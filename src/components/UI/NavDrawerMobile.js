@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import classes from "./NavDrawerMobile.module.css";
 import { useSelector } from "react-redux";
+import NavUl from "./NavUl";
 
 const Backdrop = (props) => {
   return (
@@ -19,9 +20,7 @@ const NavDrawer = (props) => {
   );
 };
 
-const NavDrawerMobile = ({open, onClose, pages}) => {
-  const loading = useSelector((state) => state.loading.state);
-
+const NavDrawerMobile = ({ open, onClose, pages }) => {
   return (
     <>
       <Backdrop
@@ -37,7 +36,8 @@ const NavDrawerMobile = ({open, onClose, pages}) => {
             : classes["closed-drawer"]
         }
       >
-        <ul className={classes.navUl}>
+        <NavUl pages={pages} mobile={true} onClose={onClose} />
+        {/* <ul className={classes.navUl}>
           {pages.map(({pageName, pagePath}) => <li className={classes.navList}>
             <NavLink
               to={pagePath}
@@ -58,7 +58,7 @@ const NavDrawerMobile = ({open, onClose, pages}) => {
               {pageName}
             </NavLink>
           </li>)}
-        </ul>
+        </ul> */}
       </NavDrawer>
     </>
   );

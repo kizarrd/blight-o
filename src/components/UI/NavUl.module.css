@@ -1,18 +1,21 @@
-main {
-  /* width: 80%;   */
+.navUl {
+  width: 0px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+}
+
+.navList {
+  width: 100px;
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
   align-items: center;
-  margin-bottom: 150px;
+  font-size: 26px;
 }
 
-* {
-  font-family: 'acumin-pro-condensed','noto sans KR',sans-serif;
-}
-
-.app {
-  font-family: 'Times New Roman', Times, serif;
-  width: 100vw;
+.active {
+  color: blue;
 }
 
 /* Custom, iPhone Retina : 320px ~ */
@@ -23,8 +26,9 @@ main {
 }
 /* Small Devices, Tablets : 768px ~ */
 @media only screen and (min-width: 768px) {
-  main {
-    margin-top: 261px;
+  .navUl {
+    width: fit-content;
+    flex-direction: row;
   }
 }
 /* Medium Devices, Desktops : 992px ~ */
