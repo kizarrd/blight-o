@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import HeaderMobile from "../components/HeaderMobile";
 import { useState } from "react";
+import './Root.module.css';
 
 
 const RootLayout = () => {
