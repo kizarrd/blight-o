@@ -105,7 +105,7 @@
 .website_info {
   /* width: 50%; */
   padding-right: 5px;
-  font-size: mobile_tertiary;
+  font-size: mobile_secondary;
 }
 
 .link_icon {
@@ -166,7 +166,8 @@
     width: 80%;
   }
   .website_info {
-    font-size: desktop_tertiary;
+    font-size: desktop_secondary;
+
   }
 }
 /* Large Devices, Wide Screens : 1200px ~ */

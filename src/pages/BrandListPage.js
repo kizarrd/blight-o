@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import styles from "./BrandList.module.css";
+import styles from "./BrandListPage.module.css";
 
-const BrandList = () => {
+const BrandListPage = () => {
   const [brands, setBrands] = useState([]);
   useEffect(() => {
     (async () => {
@@ -28,4 +28,4 @@ const BrandList = () => {
   );
 };
 
-export default BrandList;
+export default BrandListPage;

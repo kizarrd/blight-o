@@ -1,4 +1,4 @@
-import styles from "./Item.module.css";
+import classes from "./Item.module.css";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 
 const shopList = {
@@ -43,47 +43,47 @@ const Item = ({ data }) => {
   } = data;
 
   return (
-    <li className={styles["itemList-li"]}>
-      <div className={styles.itemContainer}>
+    <li className={classes["itemList-li"]}>
+      <div className={classes.itemContainer}>
         {/* <a href={detail_page_url} target="_blank" rel="noreferrer"> */}
-        <div className={styles.thumbnail}>
+        <div className={classes.thumbnail}>
           <img
-            className={styles.itemImg}
+            className={classes.itemImg}
             src={
               img_url.slice(0, 4) !== "http" ? "https://" + img_url : img_url
             }
             alt="item"
             // loading="lazy"
           />
-          {sold_out && <div className={styles.sold_out}>SOLDOUT</div>}
+          {sold_out && <div className={classes.sold_out}>SOLDOUT</div>}
         </div>
-        <div className={styles.notThumbnail}>
+        <div className={classes.notThumbnail}>
           <div
-            className={`${styles.description} ${
-              sold_out && styles.soldOutText
+            className={`${classes.description} ${
+              sold_out && classes.soldOutText
             }`}
           >
             {/* <a href={detail_page_url} target="_blank" rel="noreferrer"> */}
-            <span className={styles.brand}>[{brand}] </span>
-            <span className={styles.item_name}>{name}</span>
+            <span className={classes.brand}>[{brand}] </span>
+            <span className={classes.item_name}>{name}</span>
             {/* <span style={{paddingLeft: '10px', color: 'blue', fontWeight: 'bold', fontSize: '16px'}}>{Math.round(score*100)/100}</span> */}
           </div>
-          <div className={styles.other_info}>
+          <div className={classes.other_info}>
             <div
-              className={`${styles.price} ${sold_out && styles.soldOutText}`}
+              className={`${classes.price} ${sold_out && classes.soldOutText}`}
             >
               {sale === "True" ? (
                 <>
                   <div>
-                    <s className={styles.price__original}>
+                    <s className={classes.price__original}>
                       {formatPrice(original_price)}원
                     </s>
                   </div>
                   <div>
-                    <span className={styles.price__sale}>
+                    <span className={classes.price__sale}>
                       {formatPrice(sale_price)}원
                     </span>
-                    <span className={styles.price__percentage}>
+                    <span className={classes.price__percentage}>
                       {Math.round(
                         ((original_price - sale_price) / original_price) * 100
                       )}
@@ -92,23 +92,23 @@ const Item = ({ data }) => {
                   </div>
                 </>
               ) : (
-                <span className={styles.price_wo_sale}>
+                <span className={classes.price_wo_sale}>
                   {formatPrice(original_price)}원
                 </span>
               )}
-              {/* {sold_out && <div className={styles.sold_out}>품절</div>} */}
+              {/* {sold_out && <div className={classes.sold_out}>품절</div>} */}
             </div>
-            <div className={styles.go_to_website}>
-              <a href={detail_page_url} target="_blank" rel="noreferrer" className={styles.go_to_website__link}>
-                {/* <button className={styles.go_to_website__button}> */}
+            <div className={classes.go_to_website}>
+              <a href={detail_page_url} target="_blank" rel="noreferrer" className={classes.go_to_website__link}>
+                {/* <button className={classes.go_to_website__button}> */}
                   구매하기{" "}
                   <OpenInNewIcon
                     fontSize="small"
-                    className={styles.link_icon}
+                    className={classes.link_icon}
                   />
                 {/* </button> */}
               </a>
-              <div className={styles.website_info}>
+              <div className={classes.website_info}>
                 판매처: {getShopName(id, "kor")}
               </div>
             </div>

@@ -1,11 +1,16 @@
 import { Outlet } from "react-router-dom";
-import Header from "../components/Header";
+import HeaderMobile from "../components/HeaderMobile";
 import styles from "./Root.module.css";
+import { useState } from "react";
+
 
 const RootLayout = () => {
+  const [screenIsWide, setScreenIsWide] = useState(false);
+
+
   return (
     <div className="app">
-      <Header />
+      {screenIsWide ? "" : <HeaderMobile />}
       <main>
         <Outlet />
       </main>
