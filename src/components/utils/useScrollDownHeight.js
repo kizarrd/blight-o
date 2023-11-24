@@ -7,7 +7,7 @@ const useScrollDownHeight = (height) => {
     if (window !== undefined) {
       let windowHeight = Math.floor(window.scrollY);
       // window height changed for the demo
-      console.log(windowHeight);
+      // console.log(windowHeight);
       windowHeight >= height ? setScrolledDown(true) : setScrolledDown(false);
     }
   };
