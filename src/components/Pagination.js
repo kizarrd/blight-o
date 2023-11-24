@@ -24,7 +24,7 @@ const Pagination = () => {
         MAX_NUM_OF_PAGES
       : MAX_NUM_OF_PAGES * (Math.floor(currPageNum / MAX_NUM_OF_PAGES) - 1) +
         MAX_NUM_OF_PAGES;
-  console.log(numTotalItems);
+  // console.log(numTotalItems);
   return (
     numTotalItems > 0 &&
     !loading && (
