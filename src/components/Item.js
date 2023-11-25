@@ -99,7 +99,7 @@ const Item = ({ data }) => {
               {/* {sold_out && <div className={classes.sold_out}>품절</div>} */}
             </div>
             <div className={classes.go_to_website}>
-              <a href={detail_page_url} target="_blank" rel="noreferrer" className={classes.go_to_website__link}>
+              <a href={detail_page_url} target="_blank" rel="noreferrer" className={`${classes.go_to_website__link} gtag_go_to_website__link`}>
                 {/* <button className={classes.go_to_website__button}> */}
                   구매하기{" "}
                   <OpenInNewIcon
