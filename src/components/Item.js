@@ -42,6 +42,17 @@ const Item = ({ data }) => {
     // score,
   } = data;
 
+  const recordClickPurchaseButton = async () => {
+    let API_URL = `${process.env.REACT_APP_API_BASE}/clickData/add-click-record?itemName=${name}`;
+    // const response = await (
+      await fetch(API_URL, {
+        method: "POST", 
+        mode: "cors",
+      })
+    // ).json();
+    // console.log(response);
+  };
+
   return (
     <li className={classes["itemList-li"]}>
       <div className={classes.itemContainer}>
@@ -96,17 +107,17 @@ const Item = ({ data }) => {
                   {formatPrice(original_price)}원
                 </span>
               )}
-              {/* {sold_out && <div className={classes.sold_out}>품절</div>} */}
             </div>
             <div className={classes.go_to_website}>
-              <a href={detail_page_url} target="_blank" rel="noreferrer" className={`${classes.go_to_website__link} gtag_go_to_website__link`}>
-                {/* <button className={classes.go_to_website__button}> */}
-                  구매하기{" "}
-                  <OpenInNewIcon
-                    fontSize="small"
-                    className={classes.link_icon}
-                  />
-                {/* </button> */}
+              <a
+                href={detail_page_url}
+                target="_blank"
+                rel="noreferrer"
+                className={`${classes.go_to_website__link} gtag_go_to_website__link`}
+                onClick={recordClickPurchaseButton}
+              >
+                구매하기{" "}
+                <OpenInNewIcon fontSize="small" className={classes.link_icon} />
               </a>
               <div className={classes.website_info}>
                 판매처: {getShopName(id, "kor")}
