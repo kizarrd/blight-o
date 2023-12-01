@@ -1,19 +1,25 @@
 import Pagination from "../components/Pagination";
 import ItemList from "../components/ItemList";
-import { useValidPageForSearch } from "../hooks/useValidPageForSearch";
-import { useDispatchSearchData } from "../hooks/useDispatchSearchData";
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
+import { useValidPageForCategory } from "../hooks/useValidPageForCategory";
+import { useDispatchCategoryData } from "../hooks/useDispatchCategoryData";
 
-const ItemListPage = () => {
+const CategoryPage = () => {
 
-  const { validPageNum, searchKeyword, fetchingReady } = useValidPageForSearch();
-  useDispatchSearchData(validPageNum, searchKeyword, fetchingReady);
+  const { validPageNum, bigCategory, smallCategory, fetchingReady } = useValidPageForCategory();
+  useDispatchCategoryData(validPageNum, bigCategory, smallCategory, fetchingReady);
 
+  // useEffect(() => {
+  //   console.log(bigCategory, smallCategory);
+  // }, [bigCategory, smallCategory])
   return (
     <>
+      <h1 style={{ marginTop: '800px'}}>Category! {validPageNum}</h1>
       <ItemList />
       <Pagination />
     </>
   );
 };
 
-export default ItemListPage;
+export default CategoryPage;

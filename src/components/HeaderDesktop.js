@@ -16,6 +16,7 @@ const HeaderDesktop = ({ pages, mobile, onClose }) => {
         </nav>
       </div>
       <Search scrolledDown={scrolledDown}/>
+      <div id="subheader-root">subheader!</div>
     </header>
   );
 };

@@ -4,7 +4,7 @@ import { loadingActions } from "../store/loading-slice";
 import { useEffect } from "react";
 import { NUM_ITEMS_IN_A_PAGE } from "../components/utils/constants";
 
-export const useDispatchSearchData = (validPageNum, searchKeyword, fetchingReady) => {
+export const useDispatchCategoryData = (validPageNum, bigCategory, smallCategory, fetchingReady) => {
   const dispatch = useDispatch();
   const loading = useSelector((state) => state.loading.state);
 
@@ -17,7 +17,7 @@ export const useDispatchSearchData = (validPageNum, searchKeyword, fetchingReady
       // /items 와 같은 url을 입력할 것을 대비. 해당 searchParams 없어도 null이 아닌 valid한 값을 넣은 url로 fetch할 수 있도록.
       let API_URL = `${
         process.env.REACT_APP_API_BASE
-      }/items/search?keyword=${searchKeyword}&skip=${
+      }/items/category-items/${bigCategory}/${smallCategory}?skip=${
         NUM_ITEMS_IN_A_PAGE * (validPageNum - 1)
       }&limit=${NUM_ITEMS_IN_A_PAGE}`;
       console.log(API_URL);
@@ -29,7 +29,7 @@ export const useDispatchSearchData = (validPageNum, searchKeyword, fetchingReady
       dispatch(searchActions.load({ data, count, limit }));
       dispatch(loadingActions.setIdle());
     })();
-  }, [validPageNum, searchKeyword, fetchingReady, dispatch]);
+  }, [validPageNum, bigCategory, smallCategory, fetchingReady, dispatch]);
 
   return;
 };

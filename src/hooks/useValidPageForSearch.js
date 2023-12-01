@@ -25,7 +25,7 @@ export const useValidPageForSearch = () => {
       // /items 와 같은 url을 입력할 것을 대비. 해당 searchParams 없어도 null이 아닌 valid한 값을 넣은 url로 fetch할 수 있도록.
       let page = pageParam === null ? 1 : Number(pageParam);
 
-      // pageNumber invalid 한 경우(1미만, maxpage 초과인 경우)에만 setSearchParam을 통해 다시 파라미터 설정을 해준다.
+      // pageNumber invalid 한 경우(1미만, maxpage 초과인 경우)에만 setSearchParam을 통해 query string을 재설정 해준다.
       if (page < 1) {
         alert("페이지는 최소 1페이지 이상이어야 합니다. 1페이지로 이동합니다.");
         // setSearchParams(`?keyword=${keyword}&page=${1}`); // 얘도 아래줄이랑 똑같이 작동함. 신기.
