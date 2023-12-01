@@ -20,7 +20,7 @@ const RootLayout = () => {
     }
   }, [screenWidth])
 
-  console.log(categoryPages);
+  // console.log(categoryPages);
 
   return (
     <div className="app">
