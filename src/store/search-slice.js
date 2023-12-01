@@ -1,16 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-// const fetchItemsData = () => {
-//   return async (dispatch, getState) => {
-//     const loading = getState().loading.state;
-//     if(loading){
-//       return;
-//     }
-//     dispatch(loadingActions.setLoading());
-//     const 
-//   };
-// };
-
 const searchSlice = createSlice({
   name: "search",
   initialState: {
