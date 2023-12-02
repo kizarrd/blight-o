@@ -1,10 +1,12 @@
 import { NavLink } from "react-router-dom";
-import classes from "./NavUl.module.css";
+import desktopClasses from "./NavUlDesktop.module.css";
+import mobileClasses from "./NavUlMobile.module.css";
 import { useSelector } from "react-redux";
 import CategoryLi from "./CategoryLi";
 
 const NavUl = ({ pages, mobile, onClose, scrolledDown }) => {
   const loading = useSelector((state) => state.loading.state);
+  const classes = mobile ? mobileClasses : desktopClasses;
 
   return (
     <ul className={`${classes.navUl} ${scrolledDown && classes.scrolledDown}`}>

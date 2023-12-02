@@ -37,28 +37,6 @@ const NavDrawerMobile = ({ open, onClose, pages }) => {
         }
       >
         <NavUl pages={pages} mobile={true} onClose={onClose} />
-        {/* <ul className={classes.navUl}>
-          {pages.map(({pageName, pagePath}) => <li className={classes.navList}>
-            <NavLink
-              to={pagePath}
-              className={({ isActive }) =>
-                isActive ? classes.active : undefined
-              }
-              onClick={(e) => {
-                onClose();
-                if (loading) {
-                  e.preventDefault();
-                  alert(
-                    "검색 결과를 불러오는 중입니다. 잠시 후에 다시 시도해 주세요."
-                  );
-                  return;
-                }
-              }}
-            >
-              {pageName}
-            </NavLink>
-          </li>)}
-        </ul> */}
       </NavDrawer>
     </>
   );

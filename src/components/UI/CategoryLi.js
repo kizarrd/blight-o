@@ -1,5 +1,7 @@
 import { NavLink } from "react-router-dom";
-import classes from "./NavUl.module.css";
+
+import desktopClasses from "./CategoryLiDesktop.module.css";
+import mobileClasses from "./CategoryLiMobile.module.css";
 
 const CategoryLi = ({
   mobile,
@@ -8,17 +10,18 @@ const CategoryLi = ({
   loading,
   pageName,
 }) => {
+  const classes = mobile ? mobileClasses : desktopClasses;
   return (
     <>
-      <li className={classes.navList}>
-        <div className={`${classes.bigCategory} ${classes.headerCategoryCommon}`}>{pageName}</div>
+      <li className={`${classes.navList}`}>
+        <div className={`${classes.bigCategory}`}>{pageName}</div>
         <ul className={`${classes.subNavUl}`}>
           {smallCategories.map(({ pageName, pagePath }) => (
-            <li className={mobile}>
+            <li>
               <NavLink
                 to={pagePath}
                 className={({ isActive }) =>
-                  isActive ? classes.active : undefined
+                  isActive ? classes.active : ''
                 }
                 onClick={(e) => {
                   if (mobile) {

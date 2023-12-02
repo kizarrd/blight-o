@@ -1,0 +1,64 @@
+@value classes: "./NavUlDesktop.module.css";
+@value navList from classes;
+@value scrolledDown from classes;
+
+.navList:hover .bigCategory {
+  padding-bottom: 3px;
+  border-bottom: 3px solid black;
+  box-sizing: border-box;
+}
+
+.bigCategory {
+  composes: headerCategoryCommon from "./NavUlDesktop.module.css";
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.scrolledDown .navList {
+  /* font-size: 18px; */
+}
+
+.subNavUl {
+  display: none;
+  position: absolute;
+  width: 100vw;
+  left: 0;
+  background-color: white;
+  /* width: inherit; */
+  border-bottom: 2px solid rgb(245, 245, 245);
+  padding-left: 10px;
+  padding-bottom: 20px;
+}
+
+.subNavUl.mobile {
+  display: flex;
+  flex-direction: column;
+}
+
+.navList:hover .subNavUl {
+  display: flex;
+  justify-content: center;
+}
+
+.scrolledDown .navList:hover .subNavUl {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.subNavUl li {
+  display: block;
+  width: fit-content;
+  padding: 20px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  color: black;
+}
+
+.subNavUl li .active {
+  color: blue;
+}
+
+

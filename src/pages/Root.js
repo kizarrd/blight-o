@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import HeaderMobile from "../components/HeaderMobile";
 import { useEffect } from "react";
-import "./Root.module.css";
+import classes from "./Root.module.css";
 import NavDrawerMobile from "../components/UI/NavDrawerMobile";
 import { useDispatch, useSelector } from "react-redux";
 import { navOpenActions } from "../store/navopen-slice";
@@ -23,7 +23,7 @@ const RootLayout = () => {
   // console.log(categoryPages);
 
   return (
-    <div className="app">
+    <div className={classes.app}>
       {screenWidth > MOBILE_WIDTH ? (
         <HeaderDesktop
           onClose={() => {

@@ -8,6 +8,7 @@ import RootLayout from "./pages/Root";
 import BrandListPage from "./pages/BrandListPage";
 import ItemListPage from "./pages/ItemListPage";
 import CategoryPage from "./pages/CategoryPage";
+import './App.css';
 
 const router = createBrowserRouter([
   {

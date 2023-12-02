@@ -1,18 +1,27 @@
-@value main_font_family from '../design.module.css';
-
-main {
-  /* width: 80%;   */
+.navUl {
+  width: 0px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin-bottom: 150px;
-  font-family: main_font_family;
+  justify-content: center;
 }
 
-.app {
-  font-family: 'Times New Roman', Times, serif;
-  width: 100vw;
+.navList {
+  width: fit-content;
+  display: block;
+  font-size: 16px;
 }
+
+.navList a {
+  display: block;
+}
+
+.headerCategoryCommon {
+  padding: 20px 10px 12px;
+}
+
+/* .scrolledDown .headerCategoryCommon {
+  padding: 20px 6px 12px;
+} */
 
 /* Custom, iPhone Retina : 320px ~ */
 @media only screen and (min-width: 320px) {
@@ -21,13 +30,18 @@ main {
 @media only screen and (min-width: 480px) {
 }
 /* Small Devices, Tablets : 768px ~ */
-@media only screen and (min-width: 769px) {
-  main {
-    margin-top: 261px;
+@media only screen and (min-width: 768px) {
+  .navUl {
+    width: fit-content;
+    flex-direction: row;
   }
 }
 /* Medium Devices, Desktops : 992px ~ */
 @media only screen and (min-width: 992px) {
+  .navList {
+    font-size: 22px;
+  }
+  
 }
 /* Large Devices, Wide Screens : 1200px ~ */
 @media only screen and (min-width: 1200px) {

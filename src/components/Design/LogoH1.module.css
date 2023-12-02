@@ -1,4 +1,4 @@
-@value colors: "../../global.module.css";
+@value colors: "../../design.module.css";
 @value calico_orange from colors;
 
 .logoH1 {

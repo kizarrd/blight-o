@@ -9,3 +9,6 @@
 @value mobile_base: 13px;
 @value mobile_secondary: 11px;
 @value mobile_tertiary: 9px;
+
+@value header_font_family: ;
+@value main_font_family: 'acumin-pro-condensed','noto sans KR',sans-serif;;

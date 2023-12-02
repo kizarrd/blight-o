@@ -1,0 +1,25 @@
+@value classes: "./NavUlMobile.module.css";
+@value navList from classes;
+@value scrolledDown from classes;
+
+
+.bigCategory {
+  composes: headerCategoryCommon from "./NavUlMobile.module.css";
+  margin-bottom: 6px;
+}
+
+.subNavUl {
+  padding-left: 20px;
+  font-size: 16px;
+}
+
+.subNavUl li {
+  padding: 0 14px 0 0;
+  margin-bottom: 4px;
+}
+
+.subNavUl li .active {
+  color: blue;
+}
+
+
