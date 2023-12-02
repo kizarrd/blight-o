@@ -1,7 +1,7 @@
 import Search from "./Search";
 import classes from "./HeaderMobile.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import Logo from "./Design/LogoH1";
+import LogoH1 from "./Design/LogoH1";
 import MenuIcon from "@mui/icons-material/Menu";
 import { navOpenActions } from "../store/navopen-slice";
 import useScrollDownHeight from "./utils/useScrollDownHeight";
@@ -14,7 +14,7 @@ const HeaderMobile = () => {
   const dispatch = useDispatch();
 
   return (
-    <header className={scrolledDown && classes['mobile-flat-header']}>
+    <header className={`${classes.headerMobile} ${scrolledDown && classes['mobile-flat-header']}`}>
       <div className={classes.headerLeft}>
         <button
           onClick={() => {
@@ -27,7 +27,7 @@ const HeaderMobile = () => {
         >
           <MenuIcon fontSize="large" className={classes.menuIcon} />
         </button>
-        <Logo />
+        <LogoH1 />
       </div>
       <Search />
     </header>

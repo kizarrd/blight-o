@@ -1,3 +1,25 @@
+.headerDesktop {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 15px 10px 15px 10px;
+  margin: 20px 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: white;
+}
+
+.flat-header nav {
+  padding-left: 14px;
+}
+.flat-header .logoAndSearch {
+  width: 100%;
+  display: flex;
+}
 /* Custom, iPhone Retina : 320px ~ */
 @media only screen and (min-width: 320px) {
 }
@@ -6,18 +28,14 @@
 }
 /* Small Devices, Tablets : 768px ~ */
 @media only screen and (min-width: 768px) {
-  header {
+  .headerDesktop {
     flex-direction: column;
     margin-top: 0;
     position: fixed;
     padding-top: 35px;
     padding-bottom: 40px;
   }
-  h1 {
-    display: flex;
-    margin: 20px 0 10px 0;
-    justify-content: center;
-  }
+
   .flat-header {
     flex-direction: row;
     padding-top: 15px;
@@ -26,8 +44,8 @@
   }
   .flat-left {
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
 /* Medium Devices, Desktops : 992px ~ */
