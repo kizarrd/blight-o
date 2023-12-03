@@ -7,11 +7,11 @@ import { NUM_ITEMS_IN_A_PAGE } from "../components/utils/constants";
 export const useDispatchCategoryData = (validFetchInfo) => {
   const dispatch = useDispatch();
   const loading = useSelector((state) => state.loading.state);
-  console.log('outside', validFetchInfo.validPageNum, loading);
-  // console.log('outside', validFetchInfo.validPageNum);
+  console.log('outside', validFetchInfo, loading);
+  // console.log('outside', validFetchInfo);
   useEffect(() => {
     (async () => {
-      if (validFetchInfo.validPageNum === null) {
+      if (validFetchInfo === null) { // 컴포넌트 처음 실행시에 아직 validFetchInfo에 제대로된 정보 들어오기 전에 이 다음 단계로 넘어가는 것을 방지.
         return;
       }
       dispatch(loadingActions.setLoading());

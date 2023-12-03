@@ -7,7 +7,7 @@ import { NUM_ITEMS_IN_A_PAGE } from "../components/utils/constants";
 export const useValidPageForCategory = () => {
   // const [validPageNum, setValidPageNum] = useState(null);
   // const [validCategories, setValidCategories] = useState({});
-  const [validFetchInfo, setValidFetchInfo] = useState({ validPageNum: null });
+  const [validFetchInfo, setValidFetchInfo] = useState(null);
   // const [fetchingReady, setFetchingReady] = useState(false); // 최초 로딩시에 fetch 실행 방지용.
   const dispatch = useDispatch();
   const [searchParams, setSearchParams] = useSearchParams();
@@ -51,7 +51,7 @@ export const useValidPageForCategory = () => {
       // setFetchingReady(true);
       dispatch(loadingActions.setIdle());
     })();
-  }, [searchParams, bigCategory, smallCategory, dispatch]);
+  }, [searchParams, bigCategory, smallCategory, setSearchParams, dispatch]);
 
   return {
     validFetchInfo
