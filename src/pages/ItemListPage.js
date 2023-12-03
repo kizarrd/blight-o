@@ -5,8 +5,8 @@ import { useDispatchSearchData } from "../hooks/useDispatchSearchData";
 
 const ItemListPage = () => {
 
-  const { validPageNum, searchKeyword, fetchingReady } = useValidPageForSearch();
-  useDispatchSearchData(validPageNum, searchKeyword, fetchingReady);
+  const { validFetchInfo } = useValidPageForSearch();
+  useDispatchSearchData(validFetchInfo);
 
   return (
     <>

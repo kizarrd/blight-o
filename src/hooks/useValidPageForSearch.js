@@ -1,23 +1,16 @@
 import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useSearchParams } from "react-router-dom";
 import { loadingActions } from "../store/loading-slice";
 import { NUM_ITEMS_IN_A_PAGE } from "../components/utils/constants";
 
 export const useValidPageForSearch = () => {
-  const [validPageNum, setValidPageNum] = useState(null);
-  const [searchKeyword, setSearchKeyword] = useState(null);
-  const [fetchingReady, setFetchingReady] = useState(false); // 최초 로딩시에 fetch 실행 방지용.
+  const [validFetchInfo, setValidFetchInfo] = useState(null);
   const dispatch = useDispatch();
   const [searchParams, setSearchParams] = useSearchParams();
-  const loading = useSelector((state) => state.loading.state);
   useEffect(() => {
     console.log('hi triggered');
     (async () => {
-      if (loading) {
-        console.log('seems loading');
-        return;
-      }
       dispatch(loadingActions.setLoading());
       const keywordParam = searchParams.get("search");
       const pageParam = searchParams.get("page");
@@ -52,16 +45,12 @@ export const useValidPageForSearch = () => {
       }
 
       // 여기까지 왔으면 page가 valid하다는 것이고 따라서 setValidPageNum을 해준다.
-      setValidPageNum(page);
-      setSearchKeyword(keyword);
-      setFetchingReady(true);
+      setValidFetchInfo({ validPageNum: page, keyword })
       dispatch(loadingActions.setIdle());
     })();
-  }, [searchParams, dispatch]);
+  }, [searchParams, setSearchParams, dispatch]);
 
   return {
-    validPageNum,
-    searchKeyword,
-    fetchingReady,
+    validFetchInfo,
   };
 };
