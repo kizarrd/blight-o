@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useParams, useSearchParams } from "react-router-dom";
 import { loadingActions } from "../store/loading-slice";
 import { NUM_ITEMS_IN_A_PAGE } from "../components/utils/constants";
