@@ -1,4 +1,4 @@
-@value variables: "../design.module.css";
+@value variables: "../design.css";
 @value calico_orange from variables;
 @value desktop_emphasize, desktop_base, desktop_secondary, desktop_tertiary from variables;
 @value mobile_emphasize, mobile_base, mobile_secondary, mobile_tertiary from variables;

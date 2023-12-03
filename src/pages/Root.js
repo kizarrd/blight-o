@@ -18,7 +18,7 @@ const RootLayout = () => {
     if(navOpen !== 'initial' && screenWidth > MOBILE_WIDTH){
       dispatch(navOpenActions.setInitial());
     }
-  }, [screenWidth])
+  }, [navOpen, screenWidth, dispatch])
 
   // console.log(categoryPages);
 

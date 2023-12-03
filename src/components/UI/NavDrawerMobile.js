@@ -1,6 +1,4 @@
-import { NavLink } from "react-router-dom";
 import classes from "./NavDrawerMobile.module.css";
-import { useSelector } from "react-redux";
 import NavUl from "./NavUl";
 
 const Backdrop = (props) => {

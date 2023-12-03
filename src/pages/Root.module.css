@@ -1,4 +1,4 @@
-@value main_font_family from '../design.module.css';
+@value main_font_family from '../design.css';
 
 main {
   /* width: 80%;   */

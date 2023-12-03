@@ -1,6 +1,7 @@
-@value classes: "./NavUlDesktop.module.css";
-@value navList from classes;
-@value scrolledDown from classes;
+@value navList from "./NavUlDesktop.module.css";
+@value scrolledDown from "./NavUlDesktop.module.css";
+/* @value navList from classes; */
+/* @value scrolledDown from classes; */
 
 .navList:hover .bigCategory {
   padding-bottom: 3px;

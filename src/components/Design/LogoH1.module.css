@@ -1,16 +1,18 @@
-@value colors: "../../design.module.css";
-@value calico_orange from colors;
+@value calico_orange from "../../design.css";
+/* app 빌드시 이 파일의 첫번째 CSS가 먹히지 않는 문제가 있다. 도대체 뭘까*/
+.nothing {
 
-.logoH1 {
-  font-size: 30px;
-  font-weight: bold;
 }
 
 .white {
   color: white;
   -webkit-text-stroke: 2px black;
-
   /* text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black; */
+}
+
+.logoH1 {
+  font-size: 30px;
+  font-weight: bold;
 }
 
 .black {
