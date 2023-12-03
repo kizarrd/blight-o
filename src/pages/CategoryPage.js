@@ -4,9 +4,8 @@ import { useValidPageForCategory } from "../hooks/useValidPageForCategory";
 import { useDispatchCategoryData } from "../hooks/useDispatchCategoryData";
 
 const CategoryPage = () => {
-  const { validPageNum, bigCategory, smallCategory, fetchingReady } = useValidPageForCategory();
-  useDispatchCategoryData(validPageNum, bigCategory, smallCategory, fetchingReady);
-
+  const { validFetchInfo } = useValidPageForCategory();
+  useDispatchCategoryData(validFetchInfo);
   return (
     <>
       <ItemList />

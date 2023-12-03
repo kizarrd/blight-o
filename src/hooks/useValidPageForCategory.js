@@ -5,18 +5,15 @@ import { loadingActions } from "../store/loading-slice";
 import { NUM_ITEMS_IN_A_PAGE } from "../components/utils/constants";
 
 export const useValidPageForCategory = () => {
-  const [validPageNum, setValidPageNum] = useState(null);
-  const [fetchingReady, setFetchingReady] = useState(false); // 최초 로딩시에 fetch 실행 방지용.
+  // const [validPageNum, setValidPageNum] = useState(null);
+  // const [validCategories, setValidCategories] = useState({});
+  const [validFetchInfo, setValidFetchInfo] = useState({ validPageNum: null });
+  // const [fetchingReady, setFetchingReady] = useState(false); // 최초 로딩시에 fetch 실행 방지용.
   const dispatch = useDispatch();
   const [searchParams, setSearchParams] = useSearchParams();
   const { bigCategory, smallCategory } = useParams();
-  const loading = useSelector((state) => state.loading.state);
   useEffect(() => {
     (async () => {
-      if (loading) {
-        console.log("seems loading");
-        return;
-      }
       dispatch(loadingActions.setLoading());
       const pageParam = searchParams.get("page");
       // /items 와 같은 url을 입력할 것을 대비. 해당 searchParams 없어도 null이 아닌 valid한 값을 넣은 url로 fetch할 수 있도록.
@@ -49,16 +46,14 @@ export const useValidPageForCategory = () => {
       }
 
       // 여기까지 왔으면 page가 valid하다는 것이고 따라서 setValidPageNum을 해준다.
-      setValidPageNum(page);
-      setFetchingReady(true);
+      setValidFetchInfo({validPageNum: page, bigCategory, smallCategory});
+      console.log('validFetchInfo set, page:', page);
+      // setFetchingReady(true);
       dispatch(loadingActions.setIdle());
     })();
   }, [searchParams, bigCategory, smallCategory, dispatch]);
 
   return {
-    validPageNum,
-    bigCategory,
-    smallCategory,
-    fetchingReady,
+    validFetchInfo
   };
 };

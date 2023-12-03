@@ -4,21 +4,23 @@ import { loadingActions } from "../store/loading-slice";
 import { useEffect } from "react";
 import { NUM_ITEMS_IN_A_PAGE } from "../components/utils/constants";
 
-export const useDispatchCategoryData = (validPageNum, bigCategory, smallCategory, fetchingReady) => {
+export const useDispatchCategoryData = (validFetchInfo) => {
   const dispatch = useDispatch();
   const loading = useSelector((state) => state.loading.state);
-
+  console.log('outside', validFetchInfo.validPageNum, loading);
+  // console.log('outside', validFetchInfo.validPageNum);
   useEffect(() => {
     (async () => {
-      if (loading || !fetchingReady) {
+      if (validFetchInfo.validPageNum === null) {
         return;
       }
       dispatch(loadingActions.setLoading());
       // /items 와 같은 url을 입력할 것을 대비. 해당 searchParams 없어도 null이 아닌 valid한 값을 넣은 url로 fetch할 수 있도록.
+      console.log('inside', validFetchInfo.validPageNum);
       let API_URL = `${
         process.env.REACT_APP_API_BASE
-      }/items/category-items/${bigCategory}/${smallCategory}?skip=${
-        NUM_ITEMS_IN_A_PAGE * (validPageNum - 1)
+      }/items/category-items/${validFetchInfo.bigCategory}/${validFetchInfo.smallCategory}?skip=${
+        NUM_ITEMS_IN_A_PAGE * (validFetchInfo.validPageNum - 1)
       }&limit=${NUM_ITEMS_IN_A_PAGE}`;
       console.log(API_URL);
       const { data, count, limit } = await (
@@ -29,7 +31,7 @@ export const useDispatchCategoryData = (validPageNum, bigCategory, smallCategory
       dispatch(searchActions.load({ data, count, limit }));
       dispatch(loadingActions.setIdle());
     })();
-  }, [validPageNum, bigCategory, smallCategory, fetchingReady, dispatch]);
+  }, [validFetchInfo, dispatch]);
 
   return;
 };
