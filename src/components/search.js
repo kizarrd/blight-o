@@ -1,11 +1,11 @@
 import SearchIcon from "@mui/icons-material/Search";
 import { useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import classes from "./Search.module.css";
 import { useSelector } from "react-redux";
 
 const Search = ({ scrolledDown = false }) => {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
   const [keyword, setKeyword] = useState("");
   const loading = useSelector((state) => state.loading.state);
   const searchHandler = (e) => {
@@ -23,7 +23,7 @@ const Search = ({ scrolledDown = false }) => {
       alert("검색어를 입력해 주세요.");
       return;
     }
-    setSearchParams({ search: trimmedKeyword, page: 1 });
+    navigate(`/items?search=${trimmedKeyword}&page=${1}`);
   };
 
   return (
